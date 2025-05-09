@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "kondapalli vatsal",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": 305.8, "left": -12, "attrs": {} },
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": -3,
+      "left": 116.6,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -55.5,
+      "left": -48.5,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 25.6,
+      "left": 418.4,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 178.8,
+      "left": 503.4,
+      "attrs": { "color": "red", "flip": "1" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 228.4, "left": 537.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "ntc1:OUT", "uno:A0", "green", [ "v0" ] ],
+    [ "uno:5V", "bb1:1t.a", "red", [ "h0" ] ],
+    [ "uno:GND.2", "bb1:15t.a", "black", [ "h0" ] ],
+    [ "ntc1:VCC", "bb1:1t.b", "red", [ "v0" ] ],
+    [ "ntc1:GND", "bb1:15t.b", "black", [ "v0" ] ],
+    [ "lcd1:GND", "bb1:15t.c", "black", [ "h-19.2", "v278.4" ] ],
+    [ "lcd1:VCC", "bb1:1t.d", "red", [ "h-38.4", "v0.1" ] ],
+    [ "bb1:1t.e", "bb1:1b.f", "green", [ "v0" ] ],
+    [ "bb1:15t.e", "bb1:15b.f", "green", [ "v0" ] ],
+    [ "lcd1:SCL", "uno:A5.2", "green", [ "h-57.6", "v-38.1" ] ],
+    [ "lcd1:SDA", "uno:A4.2", "green", [ "h-38.4", "v-19" ] ],
+    [ "led1:A", "uno:8", "green", [ "v0", "h-124.8", "v-86.4" ] ],
+    [ "bb1:15b.g", "led1:C", "green", [ "v0", "h403.2" ] ],
+    [ "servo1:GND", "bb1:15b.h", "black", [ "h-57.6", "v124.8" ] ],
+    [ "servo1:V+", "bb1:1b.h", "green", [ "h-86.4", "v124.9", "h9.6" ] ],
+    [ "servo1:PWM", "uno:9", "green", [ "h-172.8", "v-172.6" ] ]
+  ],
+  "dependencies": {}
+}
